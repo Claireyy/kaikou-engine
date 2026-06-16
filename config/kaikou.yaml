@@ -1,0 +1,18 @@
+project:
+  name: kaikou-engine
+  output_count_per_run: 4
+  mode: local_first
+
+pipeline:
+  keep_top_topics: 4
+  generate_scripts_for_all_selected_topics: true
+  max_script_duration_seconds: 60
+  subtitle_max_chars_per_line: 15
+
+rules:
+  avoid_motivational_tone: true
+  avoid_academic_explanation: true
+  one_core_idea_per_video: true
+  one_cognitive_model_per_script: true
+  deduplicate_previous_topics: true
+

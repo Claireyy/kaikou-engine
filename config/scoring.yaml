@@ -1,0 +1,22 @@
+scoring:
+  dimensions:
+    real_world_frequency:
+      min: 0
+      max: 10
+    emotional_resonance:
+      min: 0
+      max: 10
+    cognitive_contradiction_strength:
+      min: 0
+      max: 10
+    comment_debate_potential:
+      min: 0
+      max: 10
+    speech_simplicity:
+      min: 0
+      max: 10
+  thresholds:
+    viral: 40
+    usable: 30
+    discard_below: 30
+

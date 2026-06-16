@@ -1,0 +1,38 @@
+# Secrets
+.env
+*.local
+*.secret
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Local databases and runtime state
+*.db
+*.sqlite
+*.sqlite3
+
+# Generated data
+data/raw_signals/*
+data/normalized_signals/*
+data/history/*
+outputs/daily_runs/*
+outputs/scripts/*
+outputs/subtitles/*
+outputs/publishing_packages/*
+
+# Keep folder structure
+!data/raw_signals/.gitkeep
+!data/normalized_signals/.gitkeep
+!data/history/.gitkeep
+!outputs/daily_runs/.gitkeep
+!outputs/scripts/.gitkeep
+!outputs/subtitles/.gitkeep
+!outputs/publishing_packages/.gitkeep
+
+# OS
+.DS_Store
+

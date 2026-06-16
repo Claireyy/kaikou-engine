@@ -1,0 +1,22 @@
+platforms:
+  douyin:
+    signal_types:
+      - trending_topic
+      - comment_cluster
+  xiaohongshu:
+    signal_types:
+      - high_save_note
+      - comment_cluster
+  bilibili:
+    signal_types:
+      - viral_knowledge_video
+      - danmaku_or_comment_cluster
+  zhihu:
+    signal_types:
+      - high_vote_discussion
+      - unresolved_question
+  video_accounts:
+    signal_types:
+      - real_life_debate
+      - comment_conflict
+

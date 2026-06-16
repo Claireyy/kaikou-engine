@@ -1,0 +1,2 @@
+"""Signal collection interfaces."""
+

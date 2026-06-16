@@ -1,0 +1,2 @@
+"""Viral topic scoring logic."""
+
