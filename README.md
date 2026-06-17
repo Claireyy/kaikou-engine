@@ -12,6 +12,29 @@ It converts internet attention signals into four complete short-video content pa
 
 The project is designed to run locally first and migrate selected modules to cloud infrastructure later.
 
+## Repository Strategy
+
+This repository is intended to be public-safe.
+
+It should contain:
+
+- project structure
+- public architecture notes
+- non-sensitive prompt templates
+- abstract pipeline logic
+- sample schemas
+
+It should not contain:
+
+- real platform cookies or tokens
+- WorkBuddy private automation profiles
+- unpublished scripts
+- raw platform data
+- private prompt assets
+- production cloud credentials
+
+Private assets should live outside this repository or in a separate private repository.
+
 ## Current Scope
 
 Version 0.1 focuses on a manual or semi-automated input workflow:
@@ -33,4 +56,3 @@ Version 0.1 focuses on a manual or semi-automated input workflow:
 ## Repository Layout
 
 See `docs/system_architecture.md` for the planned structure and module boundaries.
-

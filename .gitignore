@@ -2,6 +2,9 @@
 .env
 *.local
 *.secret
+secrets/
+private/
+local_private/
 
 # Python
 __pycache__/
@@ -24,6 +27,11 @@ outputs/scripts/*
 outputs/subtitles/*
 outputs/publishing_packages/*
 
+# Private content assets
+prompts/private/
+integrations/workbuddy/private/
+integrations/future_cloud/private/
+
 # Keep folder structure
 !data/raw_signals/.gitkeep
 !data/normalized_signals/.gitkeep
@@ -35,4 +43,3 @@ outputs/publishing_packages/*
 
 # OS
 .DS_Store
-
