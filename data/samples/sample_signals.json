@@ -1,0 +1,97 @@
+[
+  {
+    "platform": "douyin",
+    "source_url": "https://example.com/douyin/sample-1",
+    "captured_at": "2026-06-17T09:00:00+08:00",
+    "title": "为什么很多人明明很累却停不下来",
+    "content_excerpt": "下班后越累越刷手机，明明想休息，结果更睡不着。",
+    "comments": [
+      "每天都这样，越累越想刷",
+      "不是不自律，是脑子停不下来",
+      "我不同意，有时候就是逃避"
+    ],
+    "metrics": {
+      "likes": 42000,
+      "saves": 8100,
+      "comments": 2600,
+      "shares": 900
+    },
+    "collector": "sample"
+  },
+  {
+    "platform": "xiaohongshu",
+    "source_url": "https://example.com/xhs/sample-1",
+    "captured_at": "2026-06-17T09:05:00+08:00",
+    "title": "越想显得专业，越容易说不清楚",
+    "content_excerpt": "很多人在汇报时堆概念，结果对方只记住了听不懂。",
+    "comments": [
+      "明明准备很多，反而表达更乱",
+      "职场里太真实了",
+      "看情况，有些场合必须专业"
+    ],
+    "metrics": {
+      "likes": 18000,
+      "saves": 6200,
+      "comments": 980,
+      "shares": 540
+    },
+    "collector": "sample"
+  },
+  {
+    "platform": "bilibili",
+    "source_url": "https://example.com/bilibili/sample-1",
+    "captured_at": "2026-06-17T09:10:00+08:00",
+    "title": "为什么长期努力的人反而更容易焦虑",
+    "content_excerpt": "看不到反馈的时候，人会开始怀疑自己是不是方向错了。",
+    "comments": [
+      "长期没有回报真的会崩",
+      "复利就是前面太慢了",
+      "可是坚持也不一定有结果"
+    ],
+    "metrics": {
+      "likes": 25000,
+      "saves": 7300,
+      "comments": 1500,
+      "shares": 700
+    },
+    "collector": "sample"
+  },
+  {
+    "platform": "zhihu",
+    "source_url": "https://example.com/zhihu/sample-1",
+    "captured_at": "2026-06-17T09:20:00+08:00",
+    "title": "为什么越害怕浪费，越容易做错决定",
+    "content_excerpt": "很多人因为舍不得之前投入，继续留在不适合的选择里。",
+    "comments": [
+      "沉没成本真的太难放下",
+      "不一定，及时止损也很痛",
+      "亏了以后更想赢回来"
+    ],
+    "metrics": {
+      "likes": 31000,
+      "saves": 5900,
+      "comments": 1800,
+      "shares": 610
+    },
+    "collector": "sample"
+  },
+  {
+    "platform": "video_accounts",
+    "source_url": "https://example.com/video-accounts/sample-1",
+    "captured_at": "2026-06-17T09:30:00+08:00",
+    "title": "为什么越想证明自己，越容易不像自己",
+    "content_excerpt": "在亲密关系和职场里，人越想维持某种人设，越容易动作变形。",
+    "comments": [
+      "身份感太重真的会累",
+      "我就是越想表现越不像自己",
+      "可是人设有时候也是保护"
+    ],
+    "metrics": {
+      "likes": 15000,
+      "saves": 4200,
+      "comments": 760,
+      "shares": 300
+    },
+    "collector": "sample"
+  }
+]

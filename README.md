@@ -45,6 +45,20 @@ Version 0.1 focuses on a manual or semi-automated input workflow:
 4. Generate four complete video packages.
 5. Store output and history for deduplication.
 
+## Local Run
+
+Run the sample pipeline:
+
+```bash
+python3 scripts/run_daily_pipeline.py --input data/samples/sample_signals.json --output outputs/daily_runs/sample_run
+```
+
+Run tests with the Python standard library:
+
+```bash
+python3 -m unittest discover -s tests
+```
+
 ## Design Principles
 
 - Local-first, cloud-ready.
