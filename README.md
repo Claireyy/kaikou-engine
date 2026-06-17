@@ -77,7 +77,13 @@ The daily flow is:
 To paste into Kaikou, use:
 
 ```bash
-python3 scripts/copy_kaikou_paste.py outputs/daily_runs/<timestamp>
+python3 scripts/copy_kaikou_editor_text.py outputs/daily_runs/<timestamp>
+```
+
+To create a Kaikou task link:
+
+```bash
+python3 scripts/create_kaikou_link.py outputs/daily_runs/<timestamp> --copy
 ```
 
 ## Design Principles

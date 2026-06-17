@@ -8,6 +8,7 @@ from pathlib import Path
 
 from engine.formatter import (
     full_package_markdown,
+    kaikou_editor_text,
     kaikou_paste_markdown,
     package_markdown,
     topic_scores_markdown,
@@ -43,6 +44,7 @@ def write_run_output(
         )
     (output_dir / "full_package.md").write_text(full_package_markdown(packages), encoding="utf-8")
     (output_dir / "kaikou_paste.md").write_text(kaikou_paste_markdown(packages), encoding="utf-8")
+    (output_dir / "kaikou_editor_text.txt").write_text(kaikou_editor_text(packages), encoding="utf-8")
     (output_dir / "run.json").write_text(
         json.dumps(
             {

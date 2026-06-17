@@ -169,6 +169,27 @@ def kaikou_paste_markdown(packages: list[ContentPackage]) -> str:
     return "\n".join(parts)
 
 
+def kaikou_editor_text(packages: list[ContentPackage]) -> str:
+    """Text format that Kaikou's editor parses into multiple tasks."""
+
+    chunks = []
+    for package in packages:
+        title = package.publishing["titles"][2]
+        note = str(package.publishing["caption"])
+        chunks.append(
+            "\n".join(
+                [
+                    f"标题：{title}",
+                    "文案：",
+                    package.script,
+                    "备注：",
+                    note,
+                ]
+            )
+        )
+    return "\n\n---\n\n".join(chunks) + "\n"
+
+
 def _label_display(topic: TopicCandidate) -> str:
     return LABEL_DISPLAY.get(topic.cognitive_label, topic.cognitive_label)
 

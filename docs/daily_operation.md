@@ -59,11 +59,21 @@ If you want to paste the result into Kaikou, open `kaikou_paste.md`.
 
 Direct publishing or short-link generation will be added after the Kaikou site exposes a URL, API, or upload format.
 
-On macOS, copy the Kaikou paste package directly to the clipboard:
+On macOS, copy only the Kaikou editor-ready script text directly to the clipboard:
 
 ```bash
-python3 scripts/copy_kaikou_paste.py outputs/daily_runs/<timestamp>
+python3 scripts/copy_kaikou_editor_text.py outputs/daily_runs/<timestamp>
 ```
+
+Then paste it into the Kaikou `文案` box and click `生成短链接`.
+
+Create a Kaikou task link:
+
+```bash
+python3 scripts/create_kaikou_link.py outputs/daily_runs/<timestamp> --copy
+```
+
+If the short-link API is unavailable, the script writes a fallback long link that still opens the task package in Kaikou.
 
 ## Step 5: History
 
