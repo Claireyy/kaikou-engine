@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from engine.classifier import classify_signal
+from engine.domain import classify_domain
 from engine.models import RawSignal, TopicCandidate
 from engine.scorer import score_signal, selection_status
 
@@ -13,6 +14,7 @@ def normalize_signals(signals: list[RawSignal]) -> list[TopicCandidate]:
     candidates = []
     for signal in signals:
         label, model = classify_signal(signal)
+        domain = classify_domain(signal)
         scores = score_signal(signal)
         candidates.append(
             TopicCandidate(
@@ -23,6 +25,7 @@ def normalize_signals(signals: list[RawSignal]) -> list[TopicCandidate]:
                 model=model,
                 scores=scores,
                 selection_status=selection_status(scores["total"]),
+                domain=domain,
                 evidence=_evidence(signal),
             )
         )

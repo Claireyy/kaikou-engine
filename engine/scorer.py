@@ -11,11 +11,12 @@ SCORE_KEYS = (
     "cognitive_contradiction_strength",
     "comment_debate_potential",
     "speech_simplicity",
+    "system_change_strength",
 )
 
 
 def score_signal(signal: RawSignal) -> dict[str, int]:
-    """Score a signal on the v6.0 five-dimension viral rubric."""
+    """Score a signal on the v6.1 six-dimension viral rubric."""
 
     comments = signal.comments
     metrics = signal.metrics
@@ -27,6 +28,7 @@ def score_signal(signal: RawSignal) -> dict[str, int]:
         "cognitive_contradiction_strength": _score_contradiction(text),
         "comment_debate_potential": _score_debate(comments, metrics),
         "speech_simplicity": _score_simplicity(signal.title),
+        "system_change_strength": _score_system_change(text),
     }
     _apply_kaikou_fit(scores, text)
     scores["total"] = sum(scores[key] for key in SCORE_KEYS)
@@ -34,9 +36,9 @@ def score_signal(signal: RawSignal) -> dict[str, int]:
 
 
 def selection_status(total_score: int) -> str:
-    if total_score >= 40:
+    if total_score >= 48:
         return "priority"
-    if total_score >= 30:
+    if total_score >= 36:
         return "usable"
     return "discard"
 
@@ -58,6 +60,15 @@ def _score_frequency(text: str, metrics: dict[str, object]) -> int:
             "地域",
             "身份",
             "比较",
+            "收入",
+            "成本",
+            "规则",
+            "环境",
+            "AI",
+            "算法",
+            "信息",
+            "长期",
+            "反馈",
         )
     ):
         score += 3
@@ -122,6 +133,40 @@ def _score_simplicity(title: str) -> int:
     return 4
 
 
+def _score_system_change(text: str) -> int:
+    score = 2
+    if any(
+        word in text
+        for word in (
+            "结构",
+            "变化",
+            "规则",
+            "环境",
+            "失效",
+            "替代",
+            "门槛",
+            "成本",
+            "回报",
+            "收入",
+            "阶层",
+            "城市",
+            "教育",
+            "工作形态",
+            "AI",
+            "算法",
+            "信息过载",
+            "长期",
+            "周期",
+            "不确定",
+            "风险",
+        )
+    ):
+        score += 5
+    if any(word in text for word in ("过去", "现在", "越来越", "不再", "开始", "新环境", "旧经验")):
+        score += 3
+    return min(score, 10)
+
+
 def _metric(metrics: dict[str, object], key: str) -> int:
     value = metrics.get(key)
     if isinstance(value, bool):
@@ -134,7 +179,7 @@ def _metric(metrics: dict[str, object], key: str) -> int:
 
 
 def _apply_kaikou_fit(scores: dict[str, int], text: str) -> None:
-    """Favor cognition/identity/behavior signals and cap generic hot topics."""
+    """Favor cognition plus structural-change signals and cap generic hot topics."""
 
     if _has_kaikou_fit(text):
         return
@@ -171,6 +216,17 @@ def _has_kaikou_fit(text: str) -> bool:
         "反而",
         "越",
         "却",
+        "结构",
+        "规则",
+        "环境",
+        "失效",
+        "成本",
+        "回报",
+        "AI",
+        "算法",
+        "信息",
+        "长期",
+        "系统",
     )
     return any(keyword in text for keyword in fit_keywords)
 

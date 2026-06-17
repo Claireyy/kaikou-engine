@@ -43,6 +43,7 @@ class TopicCandidate:
     model: str
     scores: ScoreMap
     selection_status: str
+    domain: str = "human_behavior"
     evidence: list[str] = field(default_factory=list)
 
     @property
@@ -58,4 +59,3 @@ class ContentPackage:
     editing_script: list[dict[str, str]]
     subtitle_lines: list[str]
     publishing: dict[str, Any]
-

@@ -6,7 +6,7 @@ Turn selected Kaikou cognitive topics into short, speakable one-minute scripts.
 
 This skill is for script writing, not signal collection.
 
-This skill follows Kaikou Cognitive Content System v4.0.
+This skill follows Kaikou Cognitive Content Engine v6.1.
 
 ## Output Count
 
@@ -33,6 +33,19 @@ Use:
 - soft ending
 - real-world translation before theory
 - one anti-common-sense point
+- structural explanation
+- system-change framing
+
+## Six Cognitive Domains
+
+Each topic must belong to exactly one domain:
+
+- Human behavior system: judgment, decision, habit, cognitive bias, behavior mismatch.
+- Social structure system: income, class mobility, city cost, education return, work-form change.
+- Technology system: AI replacement, tool leverage, information access, lower-barrier side effects.
+- Information system: attention allocation, information overload, recommendation algorithms, content sameness.
+- Time system: delayed feedback, long-cycle return, compounding, instant-gratification illusion.
+- Reality system: rule change, environment reconstruction, uncertainty, systemic risk, old experience failure.
 
 ## Topic Types
 
@@ -48,17 +61,9 @@ Use exactly one main model.
 
 Allowed models:
 
-- 专长错位
-- 判断力
-- 身份结构
-- 杠杆思维
-- 认知失调
-- 注意力残留
-- 习惯路径依赖
-- 行为自动化
-- 损失厌恶
-- 框架效应
-- 锚定效应
+- 纳瓦尔体系：判断、专长、身份、杠杆。
+- 心理机制：认知偏差、注意力、习惯路径、行为自动化。
+- 结构经济学：成本变化、回报变化、规则变化。
 
 Translate the model into one daily scene:
 
@@ -69,6 +74,27 @@ Translate the model into one daily scene:
 - AI
 - 消费
 - 决策
+
+## v6.1 Structural Rule
+
+Do not only explain:
+
+- what people think
+- what people feel
+- what people do
+
+You must explain:
+
+- what system changed
+- what structure changed
+- why old experience no longer works
+- how this creates the visible behavior
+
+Core sentence:
+
+```text
+不是人突然变了，而是他所在的系统变了。
+```
 
 ## Sentence Rules
 

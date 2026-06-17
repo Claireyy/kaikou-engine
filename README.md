@@ -94,6 +94,10 @@ The v4.0 content system specification is documented in:
 
 - `docs/v4_content_system.md`
 
+The expanded v6.1 domain specification is documented in:
+
+- `docs/v6_1_expanded_domain_system.md`
+
 ## Design Principles
 
 - Local-first, cloud-ready.

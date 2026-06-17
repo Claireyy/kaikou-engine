@@ -6,7 +6,7 @@ Collect real platform attention signals for Kaikou Engine and save them into the
 
 This skill does not generate scripts. It only collects and structures input for the Kaikou Engine pipeline.
 
-The target is not generic hot news. The target is cognitive, belief, identity, judgment, and behavior signals that can become one-minute Kaikou scripts.
+The target is not generic hot news. The target is cognitive, structural, technological, informational, time-feedback, identity, judgment, and behavior signals that can become one-minute Kaikou scripts.
 
 ## Local Project Path
 
@@ -46,6 +46,15 @@ Only collect signals that fit at least one of these three types:
 - Behavior contradiction: people are doing something, but the logic is reversed.
 - Reality failure: old experience no longer works in the new environment.
 
+Also classify each good signal into one of six domains:
+
+- Human behavior system.
+- Social structure system.
+- Technology system.
+- Information system.
+- Time system.
+- Reality system.
+
 Prioritize content with:
 
 - repeated pain points
@@ -57,6 +66,11 @@ Prioritize content with:
 - identity comparison, such as city, class, education, job, taste, or self-image
 - daily decision distortion, such as spending, work, relationships, procrastination, or self-proof
 - social comparison topics that reveal perception bias, identity mismatch, or judgment error
+- structural changes in income, city cost, education return, or work form
+- technology changes such as AI lowering the barrier but changing ability structure
+- information changes such as algorithm filtering, overload, or content sameness
+- time-feedback changes such as delayed return or invisible compounding
+- old rules failing in a new environment
 
 Avoid:
 
@@ -127,6 +141,8 @@ Only collect a signal if it can answer at least one question:
 - What daily behavior does this reveal?
 - What belief, identity, or judgment error is exposed?
 - Can this become a 60-second observation about human behavior?
+- What system changed behind the behavior?
+- Is this only personal emotion, or is there a structural reason?
 
 ## Good Examples
 

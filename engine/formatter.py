@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import re
 
+from engine.domain import domain_display
 from engine.models import ContentPackage, TopicCandidate
 
 
@@ -44,12 +45,12 @@ def topic_scores_markdown(topics: list[TopicCandidate]) -> str:
     rows = [
         "# Topic Scores",
         "",
-        "| Rank | Phenomenon | Label | Model | Total | Status |",
-        "| --- | --- | --- | --- | ---: | --- |",
+        "| Rank | Phenomenon | Domain | Label | Model | Total | Status |",
+        "| --- | --- | --- | --- | --- | ---: | --- |",
     ]
     for rank, topic in enumerate(topics, start=1):
         rows.append(
-            f"| {rank} | {topic.phenomenon} | {topic.cognitive_label} | "
+            f"| {rank} | {topic.phenomenon} | {domain_display(topic.domain)} | {topic.cognitive_label} | "
             f"{topic.model} | {topic.total_score} | {topic.selection_status} |"
         )
     rows.append("")
@@ -66,7 +67,8 @@ def package_markdown(package: ContentPackage) -> str:
         f"- Platform: {topic.platform}",
         f"- Cognitive label: {topic.cognitive_label}",
         f"- Model: {topic.model}",
-        f"- Score: {topic.total_score}/50",
+        f"- Domain: {domain_display(topic.domain)}",
+        f"- Score: {topic.total_score}/60",
         "",
         "## Script",
         "",
@@ -143,7 +145,8 @@ def kaikou_paste_markdown(packages: list[ContentPackage]) -> str:
                 "",
                 f"认知标签：{_label_display(topic)}",
                 f"认知模型：{_model_display(topic)}",
-                f"评分：{topic.total_score}/50",
+                f"系统域：{domain_display(topic.domain)}",
+                f"评分：{topic.total_score}/60",
                 "",
                 "标题：",
                 f"1. {titles[0]}",

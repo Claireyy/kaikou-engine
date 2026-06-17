@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from engine.domain import domain_display
 from engine.formatter import subtitle_lines
 from engine.models import ContentPackage, TopicCandidate
 
@@ -48,6 +49,8 @@ def _generate_package(index: int, topic: TopicCandidate) -> ContentPackage:
 
 
 def _script(topic: TopicCandidate) -> str:
+    if topic.domain != "human_behavior":
+        return _system_script(topic)
     if topic.model == "Identity lag":
         return _identity_script(topic)
     if topic.model == "Loss aversion":
@@ -59,6 +62,30 @@ def _script(topic: TopicCandidate) -> str:
     if topic.model == "Compounding error":
         return _compounding_script(topic)
     return _default_script(topic)
+
+
+def _system_script(topic: TopicCandidate) -> str:
+    domain = domain_display(topic.domain)
+    model = _model_display(topic)
+    return "\n".join(
+        [
+            f"你有没有发现，{_phenomenon_text(topic)}",
+            f"这不是单纯的个人选择。",
+            f"它更像是{domain}在变化。",
+            *_system_scene_lines(topic),
+            "过去有效的经验。",
+            "放到现在未必还有效。",
+            f"这里可以用{model}看。",
+            "真正的问题不是人变差了。",
+            "而是成本、回报和规则变了。",
+            "人只是被新结构推着走。",
+            "所以这件事的反常识点是。",
+            "不要只问这个人怎么想。",
+            "要问他所在的系统变成了什么。",
+            "看懂结构。",
+            "很多行为就没那么奇怪了。",
+        ]
+    )
 
 
 def _default_script(topic: TopicCandidate) -> str:
@@ -255,14 +282,14 @@ def _publishing(topic: TopicCandidate) -> dict[str, object]:
     model = _model_display(topic)
     return {
         "titles": [
-            f"为什么你总会遇到这种事？",
+            f"不是你变了，是系统变了",
             f"你以为是情绪，其实是{label}",
             f"{short}，背后是什么？",
         ],
         "caption": "\n".join(
             [
                 f"很多人都经历过：{short}。",
-                f"真正值得看的，是背后的{model}。",
+                f"真正值得看的，是背后的{domain_display(topic.domain)}和{model}。",
                 "你最近有没有类似的瞬间？",
             ]
         ),
@@ -343,6 +370,53 @@ def _compounding_scene_lines() -> list[str]:
         "不是努力没有发生。",
         "而是反馈来得太慢。",
     ]
+
+
+def _system_scene_lines(topic: TopicCandidate) -> list[str]:
+    text = f"{topic.phenomenon} {' '.join(topic.evidence)}"
+    if topic.domain == "technology":
+        return [
+            "比如 AI 让开始变容易。",
+            "但也让真正变强更难。",
+            "工具降低了门槛。",
+            "也放大了判断差距。",
+        ]
+    if topic.domain == "information":
+        return [
+            "比如你以为自己在看世界。",
+            "其实是在看被筛过的信息。",
+            "信息越多。",
+            "判断越容易被喂养。",
+        ]
+    if topic.domain == "time":
+        return [
+            "比如很多改变正在发生。",
+            "但当下看不到效果。",
+            "反馈太慢。",
+            "人就容易误判。",
+        ]
+    if topic.domain == "social_structure":
+        if "城市" in text:
+            return [
+                "比如同样努力的人。",
+                "换一个城市。",
+                "结果可能完全不同。",
+                "不是努力消失了。",
+            ]
+        return [
+            "比如收入、教育和工作。",
+            "看起来是个人选择。",
+            "其实背后有成本结构。",
+            "也有回报结构。",
+        ]
+    if topic.domain == "reality":
+        return [
+            "比如很多旧方法。",
+            "以前很有效。",
+            "现在开始失效。",
+            "不是人突然不行了。",
+        ]
+    return _generic_scene_lines()
 
 
 def _shorten_script(script: str) -> str:

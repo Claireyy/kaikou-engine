@@ -27,14 +27,27 @@ class ScoringTest(unittest.TestCase):
                     "cognitive_contradiction_strength",
                     "comment_debate_potential",
                     "speech_simplicity",
+                    "system_change_strength",
                 )
             ),
         )
 
     def test_selection_status(self):
-        self.assertEqual(selection_status(41), "priority")
-        self.assertEqual(selection_status(30), "usable")
-        self.assertEqual(selection_status(29), "discard")
+        self.assertEqual(selection_status(48), "priority")
+        self.assertEqual(selection_status(36), "usable")
+        self.assertEqual(selection_status(35), "discard")
+
+    def test_system_change_strength_scores_structure(self):
+        signal = RawSignal(
+            platform="zhihu",
+            title="为什么过去有效的方法现在开始失效",
+            content_excerpt="规则变化让旧经验不再适用。",
+            comments=["环境变了", "不只是个人问题"],
+        )
+
+        scores = score_signal(signal)
+
+        self.assertGreaterEqual(scores["system_change_strength"], 8)
 
 
 if __name__ == "__main__":
