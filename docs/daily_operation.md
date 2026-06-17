@@ -48,11 +48,22 @@ Each run contains:
 - `03_package.md`
 - `04_package.md`
 - `full_package.md`
+- `kaikou_paste.md`
 - `run.json`
 
 ## Step 4: Review and Use
 
 Open `full_package.md`, then select the four scripts for filming, editing, and publishing.
+
+If you want to paste the result into Kaikou, open `kaikou_paste.md`.
+
+Direct publishing or short-link generation will be added after the Kaikou site exposes a URL, API, or upload format.
+
+On macOS, copy the Kaikou paste package directly to the clipboard:
+
+```bash
+python3 scripts/copy_kaikou_paste.py outputs/daily_runs/<timestamp>
+```
 
 ## Step 5: History
 
@@ -63,4 +74,3 @@ data/history/history.jsonl
 ```
 
 This file is local-only and ignored by Git.
-

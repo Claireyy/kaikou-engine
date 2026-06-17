@@ -7,6 +7,29 @@ import re
 from engine.models import ContentPackage, TopicCandidate
 
 
+LABEL_DISPLAY = {
+    "Judgment error": "判断误差",
+    "Action distortion": "行动变形",
+    "Identity mismatch": "身份错位",
+    "Feedback delay": "反馈延迟",
+    "Perception bias": "感知偏差",
+}
+
+MODEL_DISPLAY = {
+    "Specific Knowledge": "特定知识",
+    "Judgment": "判断力",
+    "Identity lag": "身份滞后",
+    "Compounding error": "复利误读",
+    "Cognitive dissonance": "认知失调",
+    "Attention residue": "注意力残留",
+    "Habit loop": "习惯回路",
+    "Framing effect": "框架效应",
+    "Loss aversion": "损失厌恶",
+    "Anchoring bias": "锚定偏差",
+    "Framing bias": "框架偏差",
+}
+
+
 def subtitle_lines(script: str, max_chars: int = 15) -> list[str]:
     """Split script into short subtitle-ready lines."""
 
@@ -100,6 +123,58 @@ def full_package_markdown(packages: list[ContentPackage]) -> str:
         parts.append("---")
         parts.append("")
     return "\n".join(parts)
+
+
+def kaikou_paste_markdown(packages: list[ContentPackage]) -> str:
+    """Compact paste-ready format for the Kaikou site/editor."""
+
+    parts = [
+        "# Kaikou Paste Package",
+        "",
+        "复制下面内容到 Kaikou。每条是一个完整短视频文案包。",
+        "",
+    ]
+    for package in packages:
+        topic = package.topic
+        titles = package.publishing["titles"]
+        parts.extend(
+            [
+                f"## {package.index}. {topic.phenomenon}",
+                "",
+                f"认知标签：{_label_display(topic)}",
+                f"认知模型：{_model_display(topic)}",
+                f"评分：{topic.total_score}/50",
+                "",
+                "标题：",
+                f"1. {titles[0]}",
+                f"2. {titles[1]}",
+                f"3. {titles[2]}",
+                "",
+                "口播文案：",
+                package.script,
+                "",
+                "字幕：",
+                "\n".join(package.subtitle_lines),
+                "",
+                "发布文案：",
+                str(package.publishing["caption"]),
+                "",
+                "标签：",
+                " ".join(f"#{tag}" for tag in package.publishing["hashtags"]),
+                "",
+                "---",
+                "",
+            ]
+        )
+    return "\n".join(parts)
+
+
+def _label_display(topic: TopicCandidate) -> str:
+    return LABEL_DISPLAY.get(topic.cognitive_label, topic.cognitive_label)
+
+
+def _model_display(topic: TopicCandidate) -> str:
+    return MODEL_DISPLAY.get(topic.model, topic.model)
 
 
 def _split_sentences(text: str) -> list[str]:

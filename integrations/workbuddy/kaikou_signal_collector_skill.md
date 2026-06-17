@@ -6,6 +6,8 @@ Collect real platform attention signals for Kaikou Engine and save them into the
 
 This skill does not generate scripts. It only collects and structures input for the Kaikou Engine pipeline.
 
+The target is not generic hot news. The target is cognitive, belief, identity, judgment, and behavior signals that can become one-minute Kaikou scripts.
+
 ## Local Project Path
 
 ```text
@@ -45,6 +47,10 @@ Prioritize content with:
 - unresolved "why" questions
 - high saves, comments, or shares
 - concrete daily life situations
+- belief or value conflict
+- identity comparison, such as city, class, education, job, taste, or self-image
+- daily decision distortion, such as spending, work, relationships, procrastination, or self-proof
+- social comparison topics that reveal perception bias, identity mismatch, or judgment error
 
 Avoid:
 
@@ -53,6 +59,10 @@ Avoid:
 - inspirational quotes
 - academic explainers
 - content that needs private user data
+- sports/game results without a judgment or identity angle
+- food/travel hot takes unless they reveal taste identity, regional identity, or class perception
+- policy or accident news unless comments reveal a repeated cognitive contradiction
+- pure outrage topics with no reusable daily-life insight
 
 ## Required JSON Shape
 
@@ -108,6 +118,22 @@ Only collect a signal if it can answer at least one question:
 - What contradiction are commenters arguing about?
 - What "why" question is still unresolved?
 - What daily behavior does this reveal?
+- What belief, identity, or judgment error is exposed?
+- Can this become a 60-second observation about human behavior?
+
+## Good Examples
+
+- People mock one city to defend their own city identity.
+- A workplace topic where people want to look professional but become harder to understand.
+- A relationship topic where someone says they want freedom but keeps testing the other person.
+- A spending topic where people know it is not worth it but still cannot stop.
+
+## Bad Examples
+
+- A celebrity breakup with no reusable behavior insight.
+- A food ranking argument with no identity or perception angle.
+- A sports score.
+- A breaking news item with only factual updates.
 
 ## After Collection
 

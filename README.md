@@ -74,6 +74,12 @@ The daily flow is:
 4. Review `outputs/daily_runs/<timestamp>/full_package.md`.
 5. Local history is appended to `data/history/history.jsonl`.
 
+To paste into Kaikou, use:
+
+```bash
+python3 scripts/copy_kaikou_paste.py outputs/daily_runs/<timestamp>
+```
+
 ## Design Principles
 
 - Local-first, cloud-ready.

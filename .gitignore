@@ -46,3 +46,6 @@ integrations/future_cloud/private/
 
 # OS
 .DS_Store
+
+# Local assistant state
+.workbuddy/
