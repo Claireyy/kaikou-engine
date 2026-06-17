@@ -40,6 +40,12 @@ Collect from any available subset of:
 
 Collect 10 to 30 raw signals per daily run.
 
+Only collect signals that fit at least one of these three types:
+
+- Group confusion: many people ask the same thing, but no one explains it clearly.
+- Behavior contradiction: people are doing something, but the logic is reversed.
+- Reality failure: old experience no longer works in the new environment.
+
 Prioritize content with:
 
 - repeated pain points
@@ -114,6 +120,7 @@ Use exactly one of:
 
 Only collect a signal if it can answer at least one question:
 
+- Which type is it: group confusion, behavior contradiction, or reality failure?
 - What pain point is being repeated?
 - What contradiction are commenters arguing about?
 - What "why" question is still unresolved?
@@ -127,6 +134,8 @@ Only collect a signal if it can answer at least one question:
 - A workplace topic where people want to look professional but become harder to understand.
 - A relationship topic where someone says they want freedom but keeps testing the other person.
 - A spending topic where people know it is not worth it but still cannot stop.
+- AI makes people feel efficient, but also makes them avoid real judgment.
+- Old career advice stops working in a new job market.
 
 ## Bad Examples
 

@@ -86,6 +86,14 @@ To create a Kaikou task link:
 python3 scripts/create_kaikou_link.py outputs/daily_runs/<timestamp> --copy
 ```
 
+Script-writing rules for short spoken lines are documented in:
+
+- `integrations/workbuddy/kaikou_script_writer_skill.md`
+
+The v4.0 content system specification is documented in:
+
+- `docs/v4_content_system.md`
+
 ## Design Principles
 
 - Local-first, cloud-ready.
