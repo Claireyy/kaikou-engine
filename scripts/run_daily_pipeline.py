@@ -27,10 +27,21 @@ def main() -> None:
         help="Output folder. Defaults to outputs/daily_runs/<timestamp>.",
     )
     parser.add_argument("--count", type=int, default=4, help="Number of packages to generate.")
+    parser.add_argument(
+        "--history",
+        default="data/history/history.jsonl",
+        help="History JSONL path. Use --history none to disable.",
+    )
     args = parser.parse_args()
 
     output_dir = Path(args.output) if args.output else _default_output_dir()
-    packages = run_pipeline(Path(args.input), output_dir, output_count=args.count)
+    history_path = None if args.history == "none" else Path(args.history)
+    packages = run_pipeline(
+        Path(args.input),
+        output_dir,
+        output_count=args.count,
+        history_path=history_path,
+    )
     print(f"Generated {len(packages)} packages in {output_dir}")
 
 

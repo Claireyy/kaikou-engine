@@ -1,0 +1,21 @@
+[
+  {
+    "platform": "douyin",
+    "source_url": "",
+    "captured_at": "2026-06-17T09:00:00+08:00",
+    "title": "",
+    "content_excerpt": "",
+    "comments": [
+      "",
+      "",
+      ""
+    ],
+    "metrics": {
+      "likes": null,
+      "saves": null,
+      "comments": null,
+      "shares": null
+    },
+    "collector": "manual"
+  }
+]

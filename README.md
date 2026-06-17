@@ -59,6 +59,21 @@ Run tests with the Python standard library:
 python3 -m unittest discover -s tests
 ```
 
+## Daily Closed Loop
+
+For real daily operation, see:
+
+- `docs/daily_operation.md`
+- `integrations/workbuddy/kaikou_signal_collector_skill.md`
+
+The daily flow is:
+
+1. WorkBuddy or manual collection writes `data/raw_signals/today.json`.
+2. Validate the input.
+3. Run the pipeline.
+4. Review `outputs/daily_runs/<timestamp>/full_package.md`.
+5. Local history is appended to `data/history/history.jsonl`.
+
 ## Design Principles
 
 - Local-first, cloud-ready.

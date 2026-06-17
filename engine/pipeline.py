@@ -6,18 +6,28 @@ from pathlib import Path
 
 from engine.dedup import deduplicate_topics
 from engine.generator import generate_packages
+from engine.history import append_history
 from engine.models import ContentPackage, TopicCandidate
 from engine.normalizer import normalize_signals, select_top_topics
 from engine.storage import load_raw_signals, write_run_output
+from engine.validator import validate_signals
 
 
-def run_pipeline(input_path: Path, output_dir: Path, output_count: int = 4) -> list[ContentPackage]:
+def run_pipeline(
+    input_path: Path,
+    output_dir: Path,
+    output_count: int = 4,
+    history_path: Path | None = Path("data/history/history.jsonl"),
+) -> list[ContentPackage]:
     signals = load_raw_signals(input_path)
+    validate_signals(signals)
     candidates = normalize_signals(signals)
     unique_candidates = deduplicate_topics(candidates)
     topics = select_top_topics(unique_candidates, limit=output_count)
     packages = generate_packages(topics)
     write_run_output(output_dir, topics, packages)
+    if history_path is not None:
+        append_history(history_path, packages, output_dir)
     return packages
 
 

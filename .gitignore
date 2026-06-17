@@ -27,6 +27,9 @@ outputs/scripts/*
 outputs/subtitles/*
 outputs/publishing_packages/*
 
+# Public templates
+!data/raw_signals/input_template.json
+
 # Private content assets
 prompts/private/
 integrations/workbuddy/private/
