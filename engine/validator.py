@@ -5,7 +5,14 @@ from __future__ import annotations
 from engine.models import RawSignal
 
 
-REQUIRED_PLATFORMS = {"douyin", "xiaohongshu", "bilibili", "zhihu", "video_accounts"}
+REQUIRED_PLATFORMS = {
+    "douyin",
+    "xiaohongshu",
+    "bilibili",
+    "zhihu",
+    "video_accounts",
+    "weibo",
+}
 
 
 class ValidationError(ValueError):

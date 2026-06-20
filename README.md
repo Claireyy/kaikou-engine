@@ -86,6 +86,12 @@ To create a Kaikou task link:
 python3 scripts/create_kaikou_link.py outputs/daily_runs/<timestamp> --copy
 ```
 
+To run the full local loop and publish to Kaikou:
+
+```bash
+python3 scripts/run_and_publish_kaikou.py --input data/raw_signals/today.json --copy
+```
+
 Script-writing rules for short spoken lines are documented in:
 
 - `integrations/workbuddy/kaikou_script_writer_skill.md`

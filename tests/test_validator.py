@@ -25,6 +25,16 @@ class ValidatorTest(unittest.TestCase):
 
         self.assertTrue(any("title is required" in error for error in errors))
 
+    def test_weibo_is_allowed_public_discussion_source(self):
+        signal = RawSignal(
+            platform="weibo",
+            title="为什么旧经验在新环境开始失效",
+            content_excerpt="评论区讨论规则变化。",
+            comments=["环境变了", "不是个人问题"],
+        )
+
+        self.assertEqual(collect_validation_errors([signal]), [])
+
 
 if __name__ == "__main__":
     unittest.main()

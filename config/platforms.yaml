@@ -19,4 +19,7 @@ platforms:
     signal_types:
       - real_life_debate
       - comment_conflict
-
+  weibo:
+    signal_types:
+      - public_discussion
+      - high_conflict_comment_thread

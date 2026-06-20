@@ -35,6 +35,7 @@ Collect from any available subset of:
 - Bilibili
 - Zhihu
 - WeChat video accounts
+- Weibo, only when it reveals public discussion with structural or cognitive conflict
 
 ## Collection Goal
 
@@ -119,6 +120,7 @@ Use exactly one of:
 - `bilibili`
 - `zhihu`
 - `video_accounts`
+- `weibo`
 
 ## Field Rules
 
